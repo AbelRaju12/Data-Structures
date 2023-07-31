@@ -7,6 +7,10 @@ void swap(int* x, int* y){
     *y=temp;
 }
 
+// int x=5;  --->1000[5]
+// int *ptr;  -->2000
+// ptr=&x;   -->2000[1000]=>5
+
 void printArray(int a[],int n){
     for(int i=0;i<n;i++){
         printf("%d ",a[i]);
