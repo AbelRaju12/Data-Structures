@@ -11,7 +11,7 @@ int main(void){
     int n, item,result;
     printf("Enter the number of elements in the array: ");
     scanf("%d",&n);
-    int a[100];
+    int a[n];
     printf("\nEnter the elements in the array.\n");
     for(int i=0;i<n;i++){
         // printf("\nelement %d: ",i+1);
