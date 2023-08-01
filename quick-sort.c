@@ -19,20 +19,27 @@ void readArray(int a[], int n){
     }
 }
 
-void ssort(int a[], int n){
-    int min, i, j;
-    for(i = 0; i < n-1; i++){  //since last element will automatically be sorted by j = i+1
-        min = i;
-        for(j = i+1; j < n; j++){
-            if(a[j] < a[min]){
-                min=j;
-            }
-        }
-        if(min != i){
-            swap(&a[min], &a[i]);
+int partition(int a[], int low, int high){
+    int pivot = a[high]; //or low or mid
+    int i = (low - 1);
+    for(int j = low; j <= high -1; j++){
+        if(a[j] < pivot){
+            i++;
+            swap(&a[i], &a[j]);
         }
     }
+    swap(&a[i+1], &a[high]);
+    return (i+1);
 }
+
+void qsort(int a[], int low, int high){
+    if(low < high){
+        int index = partition(a, low, high);
+        qsort(a, low, index - 1);
+        qsort(a, index + 1, high);
+    }
+}
+
 
 int main()
 {
@@ -41,7 +48,7 @@ int main()
     scanf("%d", &n);
     int arr[n];
     readArray(arr, n);
-    ssort(arr, n);
+    qsort(arr, 0, n-1);
     printf("Sorted array: ");
     printArray(arr, n);
     return 0;

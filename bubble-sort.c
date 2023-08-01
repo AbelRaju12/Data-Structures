@@ -41,7 +41,7 @@ int main()
     int arr[n];
     readArray(arr,n);
     bsort(arr, n);
-    printf("Sorted array:");
+    printf("Sorted array: ");
     printArray(arr, n);
     return 0;
 }
